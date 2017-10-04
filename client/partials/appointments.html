@@ -1,0 +1,25 @@
+<div ng-controller='appointmentController'>
+<h2>Doctor's Appointments</h2>
+<a ng-href="#!/logout">Logout</a>
+
+<p>Search <input ng-model='appointmentFilter.complain'></p>
+<p style="color:blue;">{{messages}}</p>
+<table class='table-style'>
+    <tr>    
+        <td><strong>Date</strong></td>
+        <td><strong>Time</strong></td>
+        <td><strong>Patient Name</strong></td>
+        <td><strong>Complain</strong></td> 
+    </tr>
+    <tr ng-repeat="x in appointments.data | orderBy: 'date' | filter:appointmentFilter">
+        <td>{{x.date | date:'fullDate'}}</td>
+        <td>{{x.time | date:'shortTime'}}</td>
+        <td>{{x._user.first_name}}</td>
+        <td>{{x.complain}}
+            <button ng-if='x._user._id === user_id' ng-click="remove(x._user._id, x._id)">Cancel</button>
+        </td>
+    </tr>
+</table>
+
+<p><button ng-click='new_appointment()'>Add New Appointment</button></p>
+</div>

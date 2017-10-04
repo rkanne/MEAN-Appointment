@@ -1,0 +1,25 @@
+<h3>Registration</h3>
+<div ng-controller='userController'>
+  <form ng-model = "user">
+	<p>First Name: <input type="text" ng-model='user.first_name'></p> 
+	<p>Last Name: <input type="text" ng-model='user.last_name'></p>
+	<p>Username: <input type="text" ng-model='user.username'></p>	
+	<p>Password : <input type="text" ng-model='user.password'></p>
+	<p>Confirm Password: <input type="text" ng-model='user.password_confirm'></p>
+	<p><input type="submit" value="register" ng-click="register()"></p>
+</form>
+
+<p>{{errors.first_name.message}}</p>
+<p>{{errors.last_name.message}}</p>
+<p>{{errors.username.message}}</p>
+<p>{{errors.password.message}}</p>
+
+<h3>Login</h3>
+  <form ng-model = "userLogin" ng-submit = "login()">
+    <p>Username: <input type="text"  ng-model = "userLogin.username"><br></p>
+    <p>Password: <input type="text"  ng-model = "userLogin.password"></p>
+    <input type="submit" value = "login" ng-click="login()">
+  </form>
+
+<p>{{errors.login_reg.message}}</p>
+</div>
